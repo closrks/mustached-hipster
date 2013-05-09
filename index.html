@@ -1,16 +1,37 @@
 <!doctype html>
 <html ng-app>
   <head>
+  	<title>Angular - Controllers</title>
   	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
   </head>
   <body>
-    <div>
-    	<label>Message:</label>
-    	<input type="text" ng-model="yourMessage" placeHolder="Enter a message here">
-    	<label>Name:</label>
-    	<input type="text" ng-model="yourName" placeHolder="Enter a name here">
-    	<hr>
-    	<h1>{{yourMessage}} {{yourName}}!</h1>
-    </div>
+  	
+  	<div ng-controller="Ctrl">
+    <input ng-model="name">
+    <h1>{{name}}<h1>
+    <h2>{{age}}<h2>
+  	</div>
+
+  	<div ng-controller="AnotherCtrl">
+    <input ng-model="name">
+    <h1>{{name}}<h1>
+    <h2>{{age * 2}}<h2>
+  	</div>
+
+  	<script>
+  	  // controllers are always functions
+  	  var Ctrl = function ($scope) {
+      $scope.name = 'Carlos Avila';
+      $scope.age = 20;
+  	  };
+
+  	  var AnotherCtrl = function ($scope) {
+      $scope.name = 'Carlos Avila';
+      $scope.age = 20;
+      $scope.$watch('name', function () {
+       console.log($scope.name);
+      });
+  	  };
+  	</script>
   </body>
 <html>

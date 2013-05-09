@@ -1,37 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html ng-app>
-  <head>
-  	<title>Angular - Controllers</title>
-  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-  </head>
-  <body>
-  	
-  	<div ng-controller="Ctrl">
-    <input ng-model="name">
-    <h1>{{name}}<h1>
-    <h2>{{age}}<h2>
-  	</div>
+ <head>
+  
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width">
 
-  	<div ng-controller="AnotherCtrl">
-    <input ng-model="name">
-    <h1>{{name}}<h1>
-    <h2>{{age * 2}}<h2>
-  	</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
 
-  	<script>
-  	  // controllers are always functions
-  	  var Ctrl = function ($scope) {
-      $scope.name = 'Carlos Avila';
-      $scope.age = 20;
-  	  };
+  <style type="text/css">
+   * {
+   	box-sizing: border-box;
+   }
+   body {
+    font: 16px/1.5 sans-serif;
+    color: #222;
+    margin: 5em;
+   }
+  </style>
 
-  	  var AnotherCtrl = function ($scope) {
-      $scope.name = 'Carlos Avila';
-      $scope.age = 20;
-      $scope.$watch('name', function () {
-       console.log($scope.name);
-      });
-  	  };
-  	</script>
-  </body>
-<html>
+ </head>
+ <body>
+ 
+ <div>
+  <label>Name</label><input type="text" ng-model="name">
+ </div>
+
+ <div>
+  <input type="checkbox" ng-model="checked"><label>Show?</label>
+ </div>
+
+ <div ng-show="checked">
+  Hello, {{name || "world"}}!
+ </div>
+
+ </body>
+</html>

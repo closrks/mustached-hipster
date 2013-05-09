@@ -21,18 +21,21 @@
 
  </head>
  <body>
- 
- <div>
-  <label>Name</label><input type="text" ng-model="name">
- </div>
+  
+  <div ng-controller="List">
+   <ul>
+    <li>Carlos</li>
+    <li>Joe</li>
+    <li>John</li>
+    <li>Tome</li>
+   </ul>
+  </div>
 
- <div>
-  <input type="checkbox" ng-model="checked"><label>Show?</label>
- </div>
-
- <div ng-show="checked">
-  Hello, {{name || "world"}}!
- </div>
+  <script type="text/javascript">
+   var List = function ($scope) {
+    
+   };
+  </script>
 
  </body>
 </html>
